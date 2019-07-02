@@ -1,0 +1,128 @@
+Custom Directives:
+    - creating our own directive called as Custom Directive.
+
+    - we can use the Custom Directives in 4 ways.
+
+        1. Element
+
+        2. CSS Class
+
+        3. Attribute
+
+        4. Comment
+
+    Ex.
+      my_dir
+
+    <my_dir></my_dir>           //Element
+
+    <div class="my_dir"></div>  //CSS Class
+
+    <div my_dir></div>          // Attribute
+
+    <!-- my_dir -->             //Comment
+
+
+Properties Of Custom Directives:
+--------------------------------
+
+1. restrict
+
+    - it will describe usage of custom directive.
+
+
+Ex.
+    restrict:"E"   //Element
+    restrict:"C"   //CSS Class
+    restrict:"A"   //Attribute
+    restrict:"M"   //Comment
+
+
+2. template
+
+    - it is used to add the inline html to the custom directive.
+
+
+Ex.
+    app.directive("my_dir",my_dir);
+    function my_dir(){
+        return {
+            restrict:"E",
+            template:"<h1>Welcome to Custom Directives</h1>"
+        }
+    }
+
+
+    <my_dir></my_dir>  //Welcome to Custom Directives
+
+
+
+3. templateUrl
+    - this property used to link the external templates to the custom directives.
+
+Ex.
+    sample.html
+    -----------
+    <h1>Welcome to Custom Directives !</h1>
+
+    app.directive("my_dir",my_dir);
+    function my_dir(){
+         return{
+            restrict:"A",
+            templateUrl:"sample.html"
+         }
+    }
+
+    <div my_dir></div>  //Welcome to Custom Directives !
+
+
+4. controller
+
+    - this property used to define the controller to the custom directive.
+
+Ex.
+
+sample.html
+-----------
+<h1>{{var_one}}</h1>
+
+
+sample.js
+---------
+app.controller("sample",sample);
+00000000fu0nction sample($scope){
+    $scope.var_one = "Welcome to Custom Directives !";
+}
+
+
+app.directive("my_dir",my_dir);
+function my_dir(){
+    return {
+        restrict:"C",
+        templateUrl:"sample.html",
+        controller:"sample"
+    }
+}
+
+
+<div class="my_dir"></div>  //Welcome to Custom Directives !
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

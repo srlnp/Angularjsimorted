@@ -1,0 +1,8 @@
+(function () {
+    "use strict";
+    app.controller("page_two",page_two);
+    function page_two($scope,$stateParams) {
+        $scope.var_two = $stateParams.eid+"..."+$stateParams.ename+"..."+$stateParams.eage;
+    }
+
+})();

@@ -1,0 +1,235 @@
+ - Karma is the Testing Framework, to write the Unit Test Cases for UI Applications.
+
+    Ex.
+        AngularJS
+        Angular4
+        reactJS
+        knockoutJS
+            --
+            --
+            --
+
+ - karma internally uses Jasmine to write the Test Cases.
+
+ - we have two types of Testings.
+
+    1. Manual Testing
+
+    2. Automation Testing
+
+
+- now a days no body using Manual Testing in UI Applications.
+
+- Automation Testing Divided into 3 Types.
+
+    1. Unit Testing
+
+    2. Integration Testing
+
+    3. End to End Testing
+
+
+Unit Testing:
+-------------
+    - Testing (Checking) the Perticular Functionality with Dummy Scenarioes
+      called as Unit Testing.
+
+
+Integration Testing:
+-------------------
+    - Testing the Perticular Functionality with Actual Scenarioes Called as Integration Testing.
+
+
+End to End Testing:
+-------------------
+    - Testing the Perticular Functionality with Different End Points Called as e2e Testing.
+
+
+
+
+Ex_1:
+-----
+
+    var app = angular.module("app",[]);
+
+    app.controller("ctrl",ctrl);
+    function ctrl($scope){
+        $scope.var_one = "Welcome !";
+    }
+
+
+Installation of Karma:
+----------------------
+> npm install -g karma
+
+test.js
+-------
+describe("basic test case",function(){
+    module("app");
+    var controllers;
+    inject("accessing the controllers", function(_$controller_){
+        controllers = _$controller_;
+   });
+});
+
+
+it("first unit test case",function(){
+
+    var result = controllers.get("ctrl", {$scope:$scope});
+    expect(result.var_one).equals("Welcome !");
+        console.log("Unit Test Case Success !");
+});
+
+
+Ex_2:
+-----
+
+var app = angular.module("app",[]);
+
+
+
+app.controller("my_ctrl",my_ctrl);
+function my_ctrl($scope,$rootScope){
+    $scope.count=0;
+
+    $scope.increment = function(){
+        count = count+1;
+    }
+
+    $scope.decrement = function(){
+        count = count-1;
+    }
+}
+
+
+test.js
+-------
+describe("unit testing",function(){
+    var allControllers;
+    module("app");
+    inject("accessing controllers",function(_$controller_){
+        allControllers=_$controller_;
+    });
+.});
+
+it("increment test",function(){
+
+    var my_ctrl = allControllers.get("my_ctrl",{$scope:$scope,$rootScope:$rootScope});
+
+    my_ctrl.increment.click();
+    my_ctrl.increment.click();
+    my_ctrl.increment.click();
+    my_ctrl.count.setToBe(3);
+
+
+});
+
+
+it("decrement test",function(){
+
+    var my_ctrl = allControllers.get("my_ctrl",{$scope:$scope,
+                                                $rootScope:$rootScope});
+
+    my_ctrl.decrement.click();
+    my_ctrl.decrement.click();
+    my_ctrl.decrement.click();
+    my_ctrl.decrement.click();
+    my_ctrl.count.setToBe(-1);
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

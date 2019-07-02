@@ -1,0 +1,51 @@
+Storages:
+
+    - AngularJS Supports Two Types Of Storages.
+
+        1. local storage
+        2. session storage
+
+    - "ngStorage" is the predefined module used to work with the Storages.
+
+    - "ngStorage" module providing two objects.
+
+        1. $localStorage
+        2. $sessionStorage
+
+    - "$localStorage" used to work with the local Storage.
+
+    - "$sessionStorage" used to work with the session storage.
+
+    - "ngstorage" is the bower key used to download the "ngStorage" module dependency
+       file.
+
+Ex.
+
+    //store the data localStorage
+    $localStorage.key1 = {'uname':'admin','upwd':'admin'};
+
+    //fetch the data from localStorage
+    var obj = $localStorage.key1;
+    console.log(obj);
+
+    //delete the data from localStorage
+    delete $localStorage.key1;
+
+
+
+
+        //store the data sessionStorage
+        $sessionStorage.key1 = {'uname':'admin','upwd':'admin'};
+
+        //fetch the data from sessionStorage
+        var obj = $sessionStorage.key1;
+        console.log(obj);
+
+        //delete the data from sessionStorage
+        delete sessionStorage.key1;
+
+
+
+
+
+
